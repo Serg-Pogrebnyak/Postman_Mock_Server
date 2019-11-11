@@ -27,22 +27,16 @@ class ViewController: UIViewController {
         APIManager.shared.login(loginLinks: LoginLinks.allCases[segmentControl.selectedSegmentIndex]) { [weak self] (user, error) in
             SVProgressHUD.dismiss()
             if error == nil {
-                self?.showUserDetailAlert(user!)
+                self?.showAlert(title: "Success authorization", message: user!.getDescriptionForAlert())
             } else {
-                self?.showErrorAlert(error!)
+                self?.showAlert(title: "Error", message: error!.userInfo["error"] as! String)
             }
         }
     }
 
     //MARK: Private
-    fileprivate func showUserDetailAlert(_ user: User) {
-        let alert = UIAlertController(title: "Done", message: user.getDescriptionForAlert(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-
-    fileprivate func showErrorAlert(_ error: NSError) {
-        let alert = UIAlertController(title: "Error", message: error.userInfo["error"] as? String, preferredStyle: .alert)
+    fileprivate func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
