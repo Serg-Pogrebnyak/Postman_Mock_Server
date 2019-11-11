@@ -6,4 +6,5 @@ target 'ServerMock' do
   use_frameworks!
 
   pod 'SwiftyJSON', '5.0.0'
+  pod 'SVProgressHUD', '2.2.5'
 end

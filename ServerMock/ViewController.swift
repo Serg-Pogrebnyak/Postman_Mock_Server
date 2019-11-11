@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ViewController: UIViewController {
 
@@ -16,12 +17,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultMaskType(.clear) //disable user interface
     }
 
     //MARK: Actions
     @IBAction func didTapSignInButton(_ sender: Any) {
+        SVProgressHUD.show(withStatus: "Loading")
         APIManager.shared.login(loginLinks: LoginLinks.allCases[segmentControl.selectedSegmentIndex]) { [weak self] (user, error) in
+            SVProgressHUD.dismiss()
             if error == nil {
                 self?.showUserDetailAlert(user!)
             } else {
