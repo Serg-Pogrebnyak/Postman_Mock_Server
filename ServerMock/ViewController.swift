@@ -10,11 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet fileprivate weak var loginTextField: UITextField!
+    @IBOutlet fileprivate weak var passTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
 
-
+    //MARK: Actions
+    @IBAction func didTapSignInButton(_ sender: Any) {
+        APIManager.shared.login()
+    }
 }
 
