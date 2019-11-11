@@ -39,10 +39,20 @@
                                     <action selector="didTapSignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pUJ-Ox-Bzh"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1cg-82-Cjk">
+                                <rect key="frame" x="80" y="266" width="254" height="32"/>
+                                <segments>
+                                    <segment title="Success"/>
+                                    <segment title="Failure"/>
+                                    <segment title="Wrong link"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="mDG-LC-mH7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7By-Vv-PSR"/>
+                            <constraint firstItem="Cfp-90-1xy" firstAttribute="top" secondItem="1cg-82-Cjk" secondAttribute="bottom" constant="50" id="CDd-ne-cVb"/>
+                            <constraint firstItem="1cg-82-Cjk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qnc-01-KQz"/>
                             <constraint firstItem="fxn-Va-jK9" firstAttribute="top" secondItem="mDG-LC-mH7" secondAttribute="bottom" constant="50" id="TpW-U9-Jwx"/>
                             <constraint firstItem="fxn-Va-jK9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="icV-d3-n7H"/>
                             <constraint firstItem="mDG-LC-mH7" firstAttribute="top" secondItem="Cfp-90-1xy" secondAttribute="bottom" constant="50" id="mMP-SQ-I6j"/>
@@ -54,6 +64,7 @@
                     <connections>
                         <outlet property="loginTextField" destination="Cfp-90-1xy" id="Rkv-Hd-7hU"/>
                         <outlet property="passTextField" destination="mDG-LC-mH7" id="0aR-XT-arc"/>
+                        <outlet property="segmentControl" destination="1cg-82-Cjk" id="9V3-mD-cRs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

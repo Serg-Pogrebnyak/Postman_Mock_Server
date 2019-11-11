@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet fileprivate weak var loginTextField: UITextField!
     @IBOutlet fileprivate weak var passTextField: UITextField!
+    @IBOutlet fileprivate weak var segmentControl: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,26 @@ class ViewController: UIViewController {
 
     //MARK: Actions
     @IBAction func didTapSignInButton(_ sender: Any) {
-        APIManager.shared.login()
+        APIManager.shared.login(loginLinks: LoginLinks.allCases[segmentControl.selectedSegmentIndex]) { [weak self] (user, error) in
+            if error == nil {
+                self?.showUserDetailAlert(user!)
+            } else {
+                self?.showErrorAlert(error!)
+            }
+        }
+    }
+
+    //MARK: Private
+    fileprivate func showUserDetailAlert(_ user: User) {
+        let alert = UIAlertController(title: "Done", message: user.getDescriptionForAlert(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    fileprivate func showErrorAlert(_ error: NSError) {
+        let alert = UIAlertController(title: "Error", message: error.userInfo["error"] as? String, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
