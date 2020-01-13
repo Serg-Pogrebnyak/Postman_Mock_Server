@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ServerMock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cfp-90-1xy">
+                                <rect key="frame" x="132" y="347" width="150" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="2sY-Jk-OPr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mDG-LC-mH7">
+                                <rect key="frame" x="132" y="431" width="150" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="SiI-af-Mhq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxn-Va-jK9">
+                                <rect key="frame" x="183.5" y="515" width="47" height="30"/>
+                                <state key="normal" title="Sign in"/>
+                                <connections>
+                                    <action selector="didTapSignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pUJ-Ox-Bzh"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1cg-82-Cjk">
+                                <rect key="frame" x="80" y="266" width="254" height="32"/>
+                                <segments>
+                                    <segment title="Success"/>
+                                    <segment title="Failure"/>
+                                    <segment title="Wrong link"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mDG-LC-mH7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7By-Vv-PSR"/>
+                            <constraint firstItem="Cfp-90-1xy" firstAttribute="top" secondItem="1cg-82-Cjk" secondAttribute="bottom" constant="50" id="CDd-ne-cVb"/>
+                            <constraint firstItem="1cg-82-Cjk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qnc-01-KQz"/>
+                            <constraint firstItem="fxn-Va-jK9" firstAttribute="top" secondItem="mDG-LC-mH7" secondAttribute="bottom" constant="50" id="TpW-U9-Jwx"/>
+                            <constraint firstItem="fxn-Va-jK9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="icV-d3-n7H"/>
+                            <constraint firstItem="mDG-LC-mH7" firstAttribute="top" secondItem="Cfp-90-1xy" secondAttribute="bottom" constant="50" id="mMP-SQ-I6j"/>
+                            <constraint firstItem="Cfp-90-1xy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pXw-Fv-zGI"/>
+                            <constraint firstItem="mDG-LC-mH7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qLR-n5-kMS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="Cfp-90-1xy" id="Rkv-Hd-7hU"/>
+                        <outlet property="passTextField" destination="mDG-LC-mH7" id="0aR-XT-arc"/>
+                        <outlet property="segmentControl" destination="1cg-82-Cjk" id="9V3-mD-cRs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="139"/>
+        </scene>
+    </scenes>
+</document>
